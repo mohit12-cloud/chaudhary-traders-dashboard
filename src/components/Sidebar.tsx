@@ -7,9 +7,9 @@ import {
   Users, 
   Settings, 
   X,
-  LogOut,
-  Sparkles
+  LogOut
 } from 'lucide-react';
+import logoImg from '../assets/logo.jpg';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -42,8 +42,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
         <div className="flex flex-col h-full">
           {/* Logo Section */}
           <div className="p-6 flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary-500/30">
-              <Sparkles size={24} />
+            <div className="w-12 h-12 rounded-xl overflow-hidden shadow-lg shadow-primary-500/20 border border-slate-100 bg-white">
+              <img src={logoImg} alt="Chaudhary Traders Logo" className="w-full h-full object-cover" />
             </div>
             <div>
               <h1 className="font-bold text-lg text-slate-800 leading-tight">Chaudhary</h1>
