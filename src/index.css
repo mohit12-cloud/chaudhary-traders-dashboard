@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #fdf2f8;
+  --color-primary-100: #fce7f3;
+  --color-primary-200: #fbcfe8;
+  --color-primary-300: #f9a8d4;
+  --color-primary-400: #f472b6;
+  --color-primary-500: #ec4899;
+  --color-primary-600: #db2777;
+  --color-primary-700: #be185d;
+  --color-primary-800: #9d174d;
+  --color-primary-900: #831843;
+
+  --color-secondary-50: #f0f9ff;
+  --color-secondary-100: #e0f2fe;
+  --color-secondary-200: #bae6fd;
+  --color-secondary-300: #7dd3fc;
+  --color-secondary-400: #38bdf8;
+  --color-secondary-500: #0ea5e9;
+  --color-secondary-600: #0284c7;
+  --color-secondary-700: #0369a1;
+  --color-secondary-800: #075985;
+  --color-secondary-900: #0c4a6e;
+
+  --color-accent-yellow: #fbbf24;
+  --color-accent-purple: #a855f7;
+  --color-accent-green: #22c55e;
+
+  --font-sans: "Inter", "Outfit", ui-sans-serif, system-ui, sans-serif;
+  
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased font-sans;
+  }
+}
+
+@utility glass {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-glass);
+}
+
+@utility glass-dark {
+  background-color: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  box-shadow: var(--shadow-glass);
+}
+
+@utility nav-link {
+  @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 text-slate-500;
+  &:hover {
+    @apply bg-primary-50 text-primary-600;
+  }
+  &.active {
+    @apply bg-primary-100 text-primary-600 font-semibold;
+  }
+}
+
+@utility btn-primary {
+  @apply px-6 py-2.5 bg-primary-500 text-white rounded-xl transition-all duration-300 shadow-lg shadow-primary-500/30 font-medium active:scale-95;
+  &:hover {
+    @apply bg-primary-600;
+  }
+}
+
+@utility card {
+  @apply glass rounded-2xl p-6 transition-all duration-300;
+  &:hover {
+    @apply shadow-xl -translate-y-1;
+  }
+}
+
+/* Custom scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300;
+}
