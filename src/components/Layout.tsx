@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import { Menu, Search, Bell } from 'lucide-react';
+import logoImg from '../assets/logo.jpg';
 
 const Layout: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex bg-slate-50">
+    <div className="min-h-screen flex bg-slate-50 relative overflow-hidden">
+      {/* Subtle Logo Watermark Background */}
+      <div className="fixed inset-0 pointer-events-none flex items-center justify-center opacity-[0.03] z-0">
+        <img src={logoImg} alt="" className="w-[800px] h-[800px] object-contain" />
+      </div>
+
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
       
-      <div className="flex-1 flex flex-col lg:pl-72">
+      <div className="flex-1 flex flex-col lg:pl-72 relative z-10">
         {/* Header */}
         <header className="h-20 bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-30 px-6 lg:px-10 flex items-center justify-between">
           <div className="flex items-center gap-4">
